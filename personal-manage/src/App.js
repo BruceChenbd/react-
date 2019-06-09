@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import './App.less';
 
 function App() {
   return (
     <div className="App">
-     hello
+      <div className="name">www</div>
     </div>
   );
 }

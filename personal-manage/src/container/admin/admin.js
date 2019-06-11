@@ -12,9 +12,10 @@ class Admin extends React.Component{
         }
     }
 
-    toggle = () => {
+    toggle = (value) => {
+        console.log(value)
         this.setState({
-            collapsed: !this.state.collapsed,
+            collapsed: value,
         });
     }
     render () {
@@ -24,15 +25,7 @@ class Admin extends React.Component{
                   <NavLeft></NavLeft>
                </Sider>
                <Layout>
-                    <Header style={{ background: '#fff', padding: 0 }}>
-                            <Icon
-                            className="trigger"
-                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                            onClick={this.toggle}
-                            />
-                            {/* <Top></Top> */}
-                            <div>hahahhah</div>
-                    </Header>
+                    <Top toggleClick={this.toggle}></Top>
                     <Content  style={{
                             margin: '24px 16px',
                             padding: 24,

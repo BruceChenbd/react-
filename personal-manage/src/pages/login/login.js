@@ -5,7 +5,13 @@ import { Redirect } from 'react-router-dom';
 import { Form, Icon, Input, Button, Checkbox,Card,message } from 'antd';
 import { connect } from 'react-redux';
 import { login } from '../../actions/action';
+import bg from '../../images/manageBg.jpg';
 
+const styleObj = {
+    width:"100%",
+    height:"100%",
+    backgroundImage: `url(${bg})`,
+}
 const history = createHistory()
 class Login extends React.Component{
     handleSubmit = e => {
@@ -21,7 +27,7 @@ class Login extends React.Component{
     render() {
             const { getFieldDecorator } = this.props.form;
             return (
-                <div className="login-wrap">
+                <div className="login-wrap" style={styleObj}>
                      <div>
                      <div className="loginTitle">欢迎登录CBD管理系统</div>
                         <Card>

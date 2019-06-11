@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu,Icon } from 'antd';
 import { NavLink } from 'react-router-dom';
 import menuData from '../../utils/menuConfig';
+import './navLeft.less'
 
 const SubMenu = Menu.SubMenu
 
@@ -11,6 +12,7 @@ class navLeft extends React.Component {
         this.state = {
             currentPath:''
         }
+        this.handleMenu = this.handleMenu.bind(this)
     }
     componentDidMount() {
         //获取菜单节点
@@ -41,18 +43,24 @@ class navLeft extends React.Component {
                  <NavLink to={item.key}>
                     <Icon type={item.type}></Icon>
                     <span>{item.title}</span>
-                    </NavLink>
+                 </NavLink>
               </Menu.Item>
           }
        })
     }
     // 点击菜单
-    handleMenu (e) {
-        console.log(e)
+    handleMenu ({item,key}) {
+        if (key === this.state.currentPath) {
+            return false;
+        }
+        this.setState({
+            currentPath:key
+        })
+        this.props.getMenu(key);
     }
     render() {
         return (
-            <div>
+            <div className="nav">
                <div className="logo">
                  <h1>CBD后台管理系统</h1>
                </div>
